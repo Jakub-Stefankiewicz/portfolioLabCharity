@@ -16,6 +16,8 @@ public class DonationController {
     private final DonationService donationService;
     private final CategoryService categoryService;
     private final InstitutionService institutionService;
+
+    //model attribute
     @RequestMapping("/form")
     public String donationForm(Model model){
         model.addAttribute("categories", categoryService.findAll());
