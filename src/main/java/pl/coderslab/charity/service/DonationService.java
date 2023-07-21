@@ -4,7 +4,6 @@ import org.springframework.stereotype.Service;
 import pl.coderslab.charity.entity.Donation;
 import pl.coderslab.charity.repository.DonationRepository;
 
-import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -16,12 +15,7 @@ public class DonationService {
     }
 
     public Long bagsQuantity(){
-        List<Donation> donationList=donationRepository.findAll();
-        Long bags=0L;
-        for (Donation donation:donationList) {
-            bags=bags+donation.getQuantity();
-        }
-        return bags;
+        return donationRepository.countQuantity().orElse(0L);
     }
 
     public void save(Donation donation){

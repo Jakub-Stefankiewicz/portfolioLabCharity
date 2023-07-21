@@ -2,11 +2,12 @@ package pl.coderslab.charity.entity;
 import jakarta.persistence.*;
 import lombok.Data;
 
+
 @Entity
 @Data
-public class Category {
+public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private long id;
     private String name;
 }

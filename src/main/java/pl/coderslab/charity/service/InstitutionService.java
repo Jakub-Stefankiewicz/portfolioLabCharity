@@ -1,5 +1,6 @@
 package pl.coderslab.charity.service;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import pl.coderslab.charity.entity.Institution;
 import pl.coderslab.charity.repository.InstitutionRepository;
@@ -13,6 +14,6 @@ public class InstitutionService {
     private final InstitutionRepository institutionRepository;
 
     public List<Institution> findAll(){
-        return institutionRepository.findAll();
+        return institutionRepository.findAll(Pageable.ofSize(4)).getContent();
     }
 }
