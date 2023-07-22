@@ -164,6 +164,26 @@ document.addEventListener("DOMContentLoaded", function() {
       this.$step.parentElement.hidden = this.currentStep >= 5;
 
       // TODO: get data from inputs and show them in summary
+
+      const sumtext=document.getElementsByClassName("summary--text");
+      const adress=document.querySelector('#adress').children;
+      const pickUp=document.querySelector('#pickup').children
+      const selectedInstitution = document.querySelectorAll('input[name="institution"]:checked');
+
+      if(this.currentStep===5){
+
+        sumtext[0].innerText=document.querySelector('#bags').value + " worki rzeczy w dobrym stanie dla dzieci";
+        sumtext[1].innerText="Dla fundacji " + selectedInstitution[0].nextElementSibling.nextElementSibling.children[0].innerText;
+
+        adress[0].innerText=document.querySelector("#street").value;
+        adress[1].innerText=document.querySelector("#city").value;
+        adress[2].innerText=document.querySelector("#zipCode").value;
+        adress[3].innerText=document.querySelector("#phone").value;
+
+        pickUp[0].innerText=document.querySelector('#pickUpDate').value;
+        pickUp[1].innerText=document.querySelector('#pickUpTime').value;
+        pickUp[2].innerText=document.querySelector('#comments').value;
+      }
     }
 
   }
