@@ -91,7 +91,7 @@
                         <c:forEach var="category" items="${categories}">
                             <div class="form-group form-group--checkbox">
                                 <label>
-                                    <form:checkbox path="categories" value="${category}"/>
+                                    <form:checkbox path="categories" value="${category}"/><form:errors cssClass="error" path="categories"/>
                                     <span class="checkbox"></span>
                                     <span class="description">${category.name}</span>
                                 </label>
@@ -110,7 +110,7 @@
                         <div class="form-group form-group--inline">
                             <label>
                                 Liczba 60l worków:
-                                <form:input id="bags" type="number" path="quantity"/>
+                                <form:input type="number" id="bags" path="quantity"/><form:errors path="quantity" cssClass="error"/>
                             </label>
                         </div>
 
@@ -128,7 +128,7 @@
                         <c:forEach var="intitution" items="${institutions}">
                             <div class="form-group form-group--checkbox">
                                 <label>
-                                    <form:radiobutton path="institution" value="${intitution}" name="institution" />
+                                    <form:radiobutton path="institution" value="${intitution}" name="institution" /><form:errors path="institution" cssClass="error"/>
                                     <span class="checkbox radio"></span>
                                     <span class="description">
                                         <div class="title">${intitution.name}</div>
@@ -152,22 +152,22 @@
                             <div class="form-section--column">
                                 <h4>Adres odbioru</h4>
                                 <div class="form-group form-group--inline">
-                                    <label> Ulica <form:input path="street" id="street"/> </label>
+                                    <label> Ulica <form:input path="street" id="street"/><form:errors path="street" cssClass="error"/> </label>
                                 </div>
 
                                 <div class="form-group form-group--inline">
-                                    <label> Miasto <form:input path="city" id="city"/> </label>
+                                    <label> Miasto <form:input path="city" id="city"/><form:errors path="city" cssClass="error"/>  </label>
                                 </div>
 
                                 <div class="form-group form-group--inline">
                                     <label>
-                                        Kod pocztowy <form:input path="zipCode" id="zipCode"/>
+                                        Kod pocztowy <form:input path="zipCode" id="zipCode"/><form:errors path="zipCode" cssClass="error"/>
                                     </label>
                                 </div>
 
                                 <div class="form-group form-group--inline">
                                     <label>
-                                        Numer telefonu <form:input path="phone" id="phone"/>
+                                        Numer telefonu <form:input path="phone" id="phone"/><form:errors path="phone" cssClass="error"/>
                                     </label>
                                 </div>
                             </div>
@@ -175,11 +175,11 @@
                             <div class="form-section--column">
                                 <h4>Termin odbioru</h4>
                                 <div class="form-group form-group--inline">
-                                    <label> Data <form:input type="date" path="pickUpDate" id="pickUpDate"/> </label>
+                                    <label> Data <form:input type="date" path="pickUpDate" id="pickUpDate"/><form:errors path="pickUpDate" cssClass="error"/>  </label>
                                 </div>
 
                                 <div class="form-group form-group--inline">
-                                    <label> Godzina <form:input type="time" path="pickUpTime" id="pickUpTime"/> </label>
+                                    <label> Godzina <form:input type="time" path="pickUpTime" id="pickUpTime"/><form:errors path="pickUpTime" cssClass="error"/>  </label>
                                 </div>
 
                                 <div class="form-group form-group--inline">

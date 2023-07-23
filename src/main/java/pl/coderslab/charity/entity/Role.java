@@ -1,6 +1,7 @@
 package pl.coderslab.charity.entity;
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.ToString;
 
 
 @Entity

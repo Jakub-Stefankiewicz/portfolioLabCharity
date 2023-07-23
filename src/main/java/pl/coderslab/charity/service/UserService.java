@@ -6,6 +6,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import pl.coderslab.charity.entity.Role;
 import pl.coderslab.charity.entity.User;
+import pl.coderslab.charity.entity.UserToRegister;
 import pl.coderslab.charity.repository.RoleRepository;
 import pl.coderslab.charity.repository.UserRepository;
 
@@ -19,15 +20,17 @@ public class UserService {
     private final RoleRepository roleRepository;
     private final PasswordEncoder passwordEncoder;
 
-    public void save(User user){
+    public void save(User user, UserToRegister userToRegister){
         if(userRepository.existsAllByUsername(user.getUsername())){
-            //uwaga- zrobić walidację, na razie wywala exceptiona
             throw new DuplicateKeyException("użytkownik o podanej nazwie już istnieje");
         } else {
             user.setEnabled(1);
-            user.setPassword(passwordEncoder.encode(user.getPassword()));
+            user.setUsername(userToRegister.getUsername());
+            user.setPassword(passwordEncoder.encode(userToRegister.getPassword()));
             Role role=roleRepository.findByName("ROLE_USER");
             user.setRoles(new HashSet<>(Arrays.asList(role)));
+            user.setName(userToRegister.getName());
+            user.setLastName(userToRegister.getLastName());
             userRepository.save(user);
         }
     }

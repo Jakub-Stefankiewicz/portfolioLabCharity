@@ -34,24 +34,33 @@
             </li>
         </ul>
 
-<body>
+        <body>
 
-<%@ include file="header.jsp" %>
+        <%@ include file="header.jsp" %>
 
-<section class="login-page">
-    <h2>Załóż konto</h2>
-    <form:form method="post" modelAttribute="userToRegister">
-    <div class="form-group">
-        <form:input path="username" placeholder="login"/><form:errors path="username" cssClass="error"/>
-    </div>
-    <div class="form-group">
-        <form:password path="password" placeholder="password"/><form:errors path="password" cssClass="error"/>
-    </div>
-        <div class="form-group form-group--buttons">
-        <a href="login.html" class="btn btn--without-border">Zaloguj się</a>
-        <input type="submit" class="btn" value="Zarejestruj się"/>
-        </div>
-    </form:form>
-</section>
+        <section class="login-page">
+            <h2>Załóż konto</h2>
+            <form:form method="post" modelAttribute="userToRegister">
+                <div class="form-group">
+                    <form:input path="username" placeholder="email"/><form:errors path="username" cssClass="error"/>
+                </div>
+                <div class="form-group">
+                    <form:password path="password" placeholder="password"/><form:errors path="password"
+                                                                                        cssClass="error"/>
+                </div>
+                <div class="form-group">
+                    <form:input path="name" placeholder="imię"/><form:errors path="name"
+                                                                                        cssClass="error"/>
+                </div>
+                <div class="form-group">
+                    <form:input path="lastName" placeholder="nazwisko"/><form:errors path="lastName"
+                                                                                        cssClass="error"/>
+                </div>
+                <div class="form-group form-group--buttons">
+                    <a href="login.html" class="btn btn--without-border">Zaloguj się</a>
+                    <input type="submit" class="btn" value="Zarejestruj się"/>
+                </div>
+            </form:form>
+        </section>
 
-<%@ include file="footer.jsp" %>
+        <%@ include file="footer.jsp" %>

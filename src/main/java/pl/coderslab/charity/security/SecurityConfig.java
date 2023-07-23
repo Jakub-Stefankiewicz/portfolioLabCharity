@@ -24,14 +24,14 @@ public class SecurityConfig {
 
         http
                 .authorizeHttpRequests((requests) -> requests
-                        .requestMatchers("/", "/form", "/register").permitAll()
+                        .requestMatchers("/", "/form", "/register", "/login").permitAll()
                         .requestMatchers("/resources/css/**","/resources/js/**","/resources/images/**").permitAll()
                         .requestMatchers("/admin/**").hasRole("ADMIN")
                         .requestMatchers("/user/**").hasRole("USER")
                         .anyRequest().authenticated()
                 )
                 .formLogin((form) -> form
-//                        .loginPage("/login")
+                        .loginPage("/login")
                         .permitAll()
                 )
                 .logout((logout) -> logout

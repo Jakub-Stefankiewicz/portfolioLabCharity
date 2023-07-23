@@ -27,9 +27,12 @@ private final UserService userService;
             return "register";
         }
         User user=new User();
-        user.setUsername(userToRegister.getUsername());
-        user.setPassword(userToRegister.getPassword());
-        userService.save(user);
+        userService.save(user, userToRegister);
      return "redirect:/" ;
+    }
+
+    @GetMapping("/login")
+    public String login() {
+        return "login";
     }
 }
