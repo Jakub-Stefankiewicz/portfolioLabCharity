@@ -7,7 +7,6 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import pl.coderslab.charity.entity.User;
 import pl.coderslab.charity.entity.UserToRegister;
 import pl.coderslab.charity.service.UserService;
 
@@ -22,13 +21,19 @@ private final UserService userService;
     }
 
     @PostMapping("/register")
-    public String saveUser(@Valid UserToRegister userToRegister, BindingResult bindingResult){
+    public String saveUser(@Valid UserToRegister userToRegister, BindingResult bindingResult, Model model){
         if(bindingResult.hasErrors()) {
             return "register";
         }
-        User user=new User();
-        userService.save(user, userToRegister);
-     return "redirect:/" ;
+        try {
+            userService.save(userToRegister);
+            return "redirect:/" ;
+        }
+        catch (Exception e){
+            Boolean incorrect=true;
+            model.addAttribute("incorrectUser", incorrect);
+            return "register";
+        }
     }
 
     @GetMapping("/login")

@@ -91,7 +91,8 @@
                         <c:forEach var="category" items="${categories}">
                             <div class="form-group form-group--checkbox">
                                 <label>
-                                    <form:checkbox path="categories" value="${category}"/><form:errors cssClass="error" path="categories"/>
+                                    <form:checkbox path="categories" value="${category}"/> <form:errors cssClass="error"
+                                                                                                       path="categories"/>
                                     <span class="checkbox"></span>
                                     <span class="description">${category.name}</span>
                                 </label>
@@ -110,7 +111,8 @@
                         <div class="form-group form-group--inline">
                             <label>
                                 Liczba 60l worków:
-                                <form:input type="number" id="bags" path="quantity"/><form:errors path="quantity" cssClass="error"/>
+                                <form:input type="number" id="bags" path="quantity"/><form:errors path="quantity"
+                                                                                                  cssClass="error"/>
                             </label>
                         </div>
 
@@ -128,7 +130,9 @@
                         <c:forEach var="intitution" items="${institutions}">
                             <div class="form-group form-group--checkbox">
                                 <label>
-                                    <form:radiobutton path="institution" value="${intitution}" name="institution" /><form:errors path="institution" cssClass="error"/>
+                                    <form:radiobutton path="institution" value="${intitution}"
+                                                      name="institution"/><form:errors path="institution"
+                                                                                       cssClass="error"/>
                                     <span class="checkbox radio"></span>
                                     <span class="description">
                                         <div class="title">${intitution.name}</div>
@@ -152,22 +156,26 @@
                             <div class="form-section--column">
                                 <h4>Adres odbioru</h4>
                                 <div class="form-group form-group--inline">
-                                    <label> Ulica <form:input path="street" id="street"/><form:errors path="street" cssClass="error"/> </label>
+                                    <label> Ulica <form:input path="street" id="street"/><form:errors path="street"
+                                                                                                      cssClass="error"/> </label>
                                 </div>
 
                                 <div class="form-group form-group--inline">
-                                    <label> Miasto <form:input path="city" id="city"/><form:errors path="city" cssClass="error"/>  </label>
+                                    <label> Miasto <form:input path="city" id="city"/><form:errors path="city"
+                                                                                                   cssClass="error"/> </label>
                                 </div>
 
                                 <div class="form-group form-group--inline">
                                     <label>
-                                        Kod pocztowy <form:input path="zipCode" id="zipCode"/><form:errors path="zipCode" cssClass="error"/>
+                                        Kod pocztowy <form:input path="zipCode" id="zipCode"/><form:errors
+                                            path="zipCode" cssClass="error"/>
                                     </label>
                                 </div>
 
                                 <div class="form-group form-group--inline">
                                     <label>
-                                        Numer telefonu <form:input path="phone" id="phone"/><form:errors path="phone" cssClass="error"/>
+                                        Numer telefonu <form:input path="phone" id="phone"/><form:errors path="phone"
+                                                                                                         cssClass="error"/>
                                     </label>
                                 </div>
                             </div>
@@ -175,11 +183,14 @@
                             <div class="form-section--column">
                                 <h4>Termin odbioru</h4>
                                 <div class="form-group form-group--inline">
-                                    <label> Data <form:input type="date" path="pickUpDate" id="pickUpDate"/><form:errors path="pickUpDate" cssClass="error"/>  </label>
+                                    <label> Data <form:input type="date" path="pickUpDate" id="pickUpDate"/><form:errors
+                                            path="pickUpDate" cssClass="error"/> </label>
                                 </div>
 
                                 <div class="form-group form-group--inline">
-                                    <label> Godzina <form:input type="time" path="pickUpTime" id="pickUpTime"/><form:errors path="pickUpTime" cssClass="error"/>  </label>
+                                    <label> Godzina <form:input type="time" path="pickUpTime"
+                                                                id="pickUpTime"/><form:errors path="pickUpTime"
+                                                                                              cssClass="error"/> </label>
                                 </div>
 
                                 <div class="form-group form-group--inline">
@@ -206,16 +217,11 @@
                                 <ul>
                                     <li>
                                         <span class="icon icon-bag"></span>
-                                        <span class="summary--text"
-                                        >4 worki ubrań w dobrym stanie dla dzieci</span
-                                        >
+                                        <span class="summary--text">Nie wybrano kategorii- cofnij się i wybierz odpowiednią</span>
                                     </li>
-
                                     <li>
                                         <span class="icon icon-hand"></span>
-                                        <span class="summary--text"
-                                        >Dla fundacji "Mam marzenie" w Warszawie</span
-                                        >
+                                        <span class="summary--text">Nie wybrano fundacji- cofnij się i wybierz odpowiednią.</span>
                                     </li>
                                 </ul>
                             </div>

@@ -14,8 +14,9 @@ public class Donation {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Min(value = 1, message = "Minimalna liczba worków to 1")
+    @Positive
     private int quantity;
-    @NotNull
+    @NotEmpty
     @ManyToMany
     private List<Category> categories;
     @NotNull
@@ -28,6 +29,8 @@ public class Donation {
     @NotBlank
     private String zipCode;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @Future
+    @NotNull
     private LocalDate pickUpDate;
     @NotNull
     private LocalTime pickUpTime;
