@@ -257,6 +257,4 @@
             </div>
         </section>
 
-        <script src="../../resources/js/app.js"></script>
-
         <%@ include file="footer.jsp" %>

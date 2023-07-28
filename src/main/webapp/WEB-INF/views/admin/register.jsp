@@ -36,16 +36,14 @@
 
         <body>
 
-        <%@ include file="header.jsp" %>
+        <%@ include file="../header.jsp" %>
 
         <section class="login-page">
             <h2>Załóż konto</h2>
             <form:form method="post" modelAttribute="userToRegister">
                 <div class="form-group">
                     <form:input path="username" placeholder="email"/><form:errors path="username"
-                                                                                  cssClass="error"/><c:if
-                        test="${incorrectUser}">
-                    <span class="error"> Nazwa użytkownika/email istnieje</span></c:if>
+                                                                                  cssClass="error"/>
                 </div>
                 <div class="form-group">
                     <form:password path="password" placeholder="password"/><form:errors path="password"
@@ -66,4 +64,4 @@
             </form:form>
         </section>
 
-        <%@ include file="footer.jsp" %>
+        <%@ include file="../footer.jsp" %>

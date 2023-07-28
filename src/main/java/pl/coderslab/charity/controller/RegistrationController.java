@@ -17,22 +17,21 @@ private final UserService userService;
     @GetMapping("/register")
     public String createUser(Model model){
         model.addAttribute("userToRegister", new UserToRegister());
-        return "register";
+        return "user/register";
     }
 
     @PostMapping("/register")
-    public String saveUser(@Valid UserToRegister userToRegister, BindingResult bindingResult, Model model){
+    public String saveUser(@Valid UserToRegister userToRegister, BindingResult bindingResult){
         if(bindingResult.hasErrors()) {
-            return "register";
+            return "user/register";
         }
         try {
             userService.save(userToRegister);
             return "redirect:/" ;
         }
         catch (Exception e){
-            Boolean incorrect=true;
-            model.addAttribute("incorrectUser", incorrect);
-            return "register";
+            bindingResult.rejectValue("username","username", "Użytkownik istnieje");
+            return "user/register";
         }
     }
 

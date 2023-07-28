@@ -126,6 +126,7 @@ document.addEventListener("DOMContentLoaded", function () {
             this.$next.forEach(btn => {
                 btn.addEventListener("click", e => {
                     e.preventDefault();
+                    console.log("next");
                     this.currentStep++;
                     this.updateForm();
                 });
@@ -135,6 +136,7 @@ document.addEventListener("DOMContentLoaded", function () {
             this.$prev.forEach(btn => {
                 btn.addEventListener("click", e => {
                     e.preventDefault();
+                    console.log("prev");
                     this.currentStep--;
                     this.updateForm();
                 });
@@ -170,10 +172,13 @@ document.addEventListener("DOMContentLoaded", function () {
             const sumtext = document.getElementsByClassName("summary--text");
             const adress = document.querySelector('#adress').children;
             const pickUp = document.querySelector('#pickup').children
-            const selectedInstitution = document.querySelectorAll('input[name="institution"]:checked');
+            const selectedInstitution = document.querySelector('input[name="institution"]:checked');
             const ulCategories = sumtext[0].parentElement.parentElement;
 
             if (this.currentStep === 5) {
+
+                console.log(categories);
+                console.log(selectedInstitution);
 
                 sumtext[0].innerText = document.querySelector('#bags').value + " worki rzeczy z kategorii: ";
 
@@ -182,7 +187,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     const li = document.createElement('li');
                     ulCategories.insertBefore(li, ulCategories.lastElementChild).innerText = inst;
                 })
-                sumtext[1].innerText = "Dla fundacji " + selectedInstitution[0].nextElementSibling.nextElementSibling.children[0].innerText;
+                sumtext[1].innerText = "Dla fundacji " + selectedInstitution.nextElementSibling.nextElementSibling.children[0].innerText;
 
                 adress[0].innerText = document.querySelector("#street").value;
                 adress[1].innerText = document.querySelector("#city").value;
@@ -200,5 +205,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const form = document.querySelector(".form--steps");
     if (form !== null) {
         new FormSteps(form);
+        console.log(form);
     }
 });

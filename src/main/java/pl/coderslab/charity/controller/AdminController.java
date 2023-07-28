@@ -8,11 +8,10 @@ import pl.coderslab.charity.service.UserService;
 
 @Controller
 @RequiredArgsConstructor
-@RequestMapping(path = "/user")
-public class UserController {
-
+@RequestMapping(path = "/admin")
+public class AdminController {
     @GetMapping("/homepage")
-    public String homepage() {
-        return "user/homepage";
+    public String homepage(){
+        return "admin/homepage";
     }
 }
