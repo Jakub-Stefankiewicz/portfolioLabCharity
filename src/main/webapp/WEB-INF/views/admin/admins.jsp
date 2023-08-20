@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: pannorris
-  Date: 23.07.2023
-  Time: 15:33
+  Date: 28.07.2023
+  Time: 19:28
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -43,14 +43,30 @@
 
     <%@ include file="../header.jsp" %>
 
-    <section class="login-page">
-      <h2>Zalgowano admina</h2>
-      <div> Tu jest główna stona admina</div>
+    <section class="help">
+      <div class="help--slides active" data-id="1">
+        <ul class="help--slides-items">
+          <c:forEach items="${admins}" var="admin">
+            <c:if test="${sessionUser!=admin}">
+            <div class="col">
+              <div class="title">Login: ${admin.username}</div>
+              <div class="title">Imię: ${admin.name}</div>
+              <div class="title">Nazwisko: ${admin.lastName}</div>
+              <form action="/admin/admins/edit/${admin.id}">
+                <input type="submit" class="btn" value="Edytuj admina"/>
+              </form>
+              <form action="/admin/admins/delete/${admin.id}">
+                <input type="submit" class="btn"  onclick="return confirm('Are you sure?')" value="Usuń admina"/>
+              </form>
+            </div>
+            </c:if>
+          </c:forEach>
+<%--          <form action="/admin/admins" method="post">--%>
+<%--            <input type="checkbox" value="${users}"/>--%>
+<%--            <input type="submit" class="btn" value="Dodaj nowego admina z listy użytkowników"/>--%>
+<%--          </form>--%>
+        </ul>
+      </div>
     </section>
-
-    <form action="<c:url value="/logout"/>" method="post">
-      <input class="fa fa-id-badge" type="submit" value="Wyloguj">
-      <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-    </form>
 
     <%@ include file="../footer.jsp" %>

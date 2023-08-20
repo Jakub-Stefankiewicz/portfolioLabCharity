@@ -24,7 +24,7 @@
 <header class="header--form-page">
     <nav class="container container--70">
         <ul class="nav--actions">
-            <li class="logged-user">
+            <li class="logged-userCharity">
                 Witaj Agata
                 <ul class="dropdown">
                     <li><a href="#">Profil</a></li>
@@ -44,7 +44,7 @@
         <%@ include file="../header.jsp" %>
 
         <section class="login-page">
-            <h1>Nie masz uprawnień, leszczu</h1>
+            <h1>Nie masz uprawnień do wyświetlenia strony</h1>
             <form action="<c:url value="/logout"/>" method="post">
                 <input type="submit" value="Wyloguj się i zaloguj na odpowiednie konto">
                 <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>

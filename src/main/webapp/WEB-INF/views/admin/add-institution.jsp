@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: pannorris
-  Date: 20.07.2023
-  Time: 18:32
+  Date: 28.07.2023
+  Time: 18:22
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -18,7 +18,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
     <title>Document</title>
-    <link rel="stylesheet" href="../../../resources/css/style.css"/>
+    <link rel="stylesheet" href="../../resources/css/style.css"/>
 </head>
 <body>
 <header class="header--form-page">
@@ -39,27 +39,18 @@
         <%@ include file="../header.jsp" %>
 
         <section class="login-page">
-            <h2>Załóż konto</h2>
-            <form:form method="post" modelAttribute="userToRegister">
+            <h2>Dodaj instytucję</h2>
+            <form:form method="post" modelAttribute="institution">
                 <div class="form-group">
-                    <form:input path="username" placeholder="email"/><form:errors path="username"
+                    <form:input path="name" placeholder="nazwa instytucji"/><form:errors path="name"
                                                                                   cssClass="error"/>
                 </div>
                 <div class="form-group">
-                    <form:password path="password" placeholder="password"/><form:errors path="password"
+                    <form:input path="description" placeholder="opis instytucji"/><form:errors path="description"
                                                                                         cssClass="error"/>
                 </div>
-                <div class="form-group">
-                    <form:input path="name" placeholder="imię"/><form:errors path="name"
-                                                                             cssClass="error"/>
-                </div>
-                <div class="form-group">
-                    <form:input path="lastName" placeholder="nazwisko"/><form:errors path="lastName"
-                                                                                     cssClass="error"/>
-                </div>
                 <div class="form-group form-group--buttons">
-                    <a href="login.html" class="btn btn--without-border">Zaloguj się</a>
-                    <input type="submit" class="btn" value="Zarejestruj się"/>
+                    <input type="submit" class="btn" value="Dodaj instytucję"/>
                 </div>
             </form:form>
         </section>

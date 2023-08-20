@@ -107,6 +107,7 @@
                 </configuration>
             </plugin>
         </plugins>
+        <finalName>aplikacja</finalName>
     </build>
 
 </project>

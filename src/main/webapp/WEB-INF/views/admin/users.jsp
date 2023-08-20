@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: pannorris
-  Date: 23.07.2023
-  Time: 15:33
+  Date: 29.07.2023
+  Time: 14:57
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -43,14 +43,28 @@
 
         <%@ include file="../header.jsp" %>
 
-        <section class="login-page">
-            <h2>Zalgowano usera</h2>
-            <div> Tu jest główna stona usera</div>
+        <section class="help">
+            <div class="help--slides active" data-id="1">
+                <ul class="help--slides-items">
+                    <c:forEach items="${users}" var="user">
+                        <div class="col">
+                            <div class="title">${user.username}</div>
+                            <div class="subtitle">${user.name}</div>
+                            <div class="subtitle">${user.lastName}</div>
+                            <div class="subtitle">
+                                <c:if test="${user.enabled==1}">Aktywny</c:if>
+                                <c:if test="${user.enabled!=1}">Nieaktywny</c:if>
+                            </div>
+                            <form action="/admin/user/edit/${user.id}">
+                                <input type="submit" class="btn" value="Edytuj użytkownika"/>
+                            </form>
+                            <form action="/admin/user/delete/${user.id}">
+                                <input type="submit" class="btn"  onclick="return confirm('Are you sure?')" value="Usuń użytkownika"/>
+                            </form>
+                        </div>
+                    </c:forEach>
+                </ul>
+            </div>
         </section>
-
-        <form action="<c:url value="/logout"/>" method="post">
-            <input class="fa fa-id-badge" type="submit" value="Wyloguj">
-            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-        </form>
 
         <%@ include file="../footer.jsp" %>

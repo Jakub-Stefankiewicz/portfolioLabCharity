@@ -1,19 +1,25 @@
 package pl.coderslab.charity.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 
 import java.util.Set;
 
 @Entity(name = "user")
 @Data
-public class User {
+public class UserCharity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+    @NotBlank
+    @Email
     private String username;
     private String password;
+    @NotBlank
     private String name;
+    @NotBlank
     private String lastName;
     private int enabled;
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)

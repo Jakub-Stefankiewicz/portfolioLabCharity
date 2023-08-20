@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: pannorris
-  Date: 23.07.2023
-  Time: 15:33
+  Date: 28.07.2023
+  Time: 17:50
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -43,14 +43,26 @@
 
         <%@ include file="../header.jsp" %>
 
-        <section class="login-page">
-            <h2>Zalgowano usera</h2>
-            <div> Tu jest główna stona usera</div>
+        <section class="help">
+            <div class="help--slides active" data-id="1">
+            <ul class="help--slides-items">
+            <c:forEach items="${institutions}" var="institution">
+                <div class="col">
+                    <div class="title">${institution.name}</div>
+                    <div class="subtitle">${institution.description}</div>
+                    <form action="/admin/institutions/edit/${institution.id}">
+                        <input type="submit" class="btn" value="Edytuj fundację"/>
+                    </form>
+                    <form action="/admin/institutions/delete/${institution.id}">
+                        <input type="submit" class="btn"  onclick="return confirm('Are you sure?')" value="Usuń fundację"/>
+                    </form>
+                </div>
+            </c:forEach>
+                <form action="/admin/institutions/add">
+                    <input type="submit" class="btn" value="Dodaj nową fundację"/>
+                </form>
+            </ul>
+            </div>
         </section>
-
-        <form action="<c:url value="/logout"/>" method="post">
-            <input class="fa fa-id-badge" type="submit" value="Wyloguj">
-            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-        </form>
 
         <%@ include file="../footer.jsp" %>

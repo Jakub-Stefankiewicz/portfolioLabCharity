@@ -25,12 +25,12 @@ private final UserService userService;
         if(bindingResult.hasErrors()) {
             return "user/register";
         }
-        try {
-            userService.save(userToRegister);
-            return "redirect:/" ;
-        }
-        catch (Exception e){
-            bindingResult.rejectValue("username","username", "Użytkownik istnieje");
+
+        try{
+            userService.saveNew(userService.checkUser(userToRegister));
+            return "redirect:/";
+        } catch (Exception e){
+            bindingResult.rejectValue("username", "username", "Użytkownik istnieje");
             return "user/register";
         }
     }
