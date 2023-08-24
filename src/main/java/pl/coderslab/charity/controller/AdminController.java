@@ -8,12 +8,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-import pl.coderslab.charity.entity.Role;
 import pl.coderslab.charity.entity.UserCharity;
 import pl.coderslab.charity.service.RoleService;
 import pl.coderslab.charity.service.UserService;
-import java.util.Arrays;
-import java.util.HashSet;
 
 
 @Controller
