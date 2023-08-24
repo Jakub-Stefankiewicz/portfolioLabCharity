@@ -6,53 +6,36 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
-<!DOCTYPE html>
-<html lang="pl">
-<head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
-    <title>Document</title>
-    <link rel="stylesheet" href="../../resources/css/style.css"/>
-</head>
-<body>
-<header class="header--form-page">
-    <nav class="container container--70">
-        <ul class="nav--actions">
-            <li class="logged-userCharity">
-                Witaj Agata
-                <ul class="dropdown">
-                    <li><a href="#">Profil</a></li>
-                    <li><a href="#">Moje zbiórki</a></li>
-                    <li><a href="#">Wyloguj</a></li>
-                </ul>
-            </li>
-        </ul>
+<%@ include file="admin-header.jsp" %>
 
-        <body>
 
-        <%@ include file="../header.jsp" %>
+<div class="col-xl-10 col-lg-12 col-md-9">
 
-        <section class="login-page">
-            <h2>Dodaj instytucję</h2>
-            <form:form method="post" modelAttribute="institution">
-                <div class="form-group">
-                    <form:input path="name" placeholder="nazwa instytucji"/><form:errors path="name"
-                                                                                  cssClass="error"/>
+    <div class="card o-hidden border-0 shadow-lg my-5">
+        <div class="card-body p-0">
+            <div class="p-5">
+                <div class="text-center">
+                    <h1 class="h4 text-gray-900 mb-4">Dodaj nową instytucję</h1>
                 </div>
-                <div class="form-group">
-                    <form:input path="description" placeholder="opis instytucji"/><form:errors path="description"
-                                                                                        cssClass="error"/>
-                </div>
-                <div class="form-group form-group--buttons">
-                    <input type="submit" class="btn" value="Dodaj instytucję"/>
-                </div>
-            </form:form>
-        </section>
+                <form:form modelAttribute="institution" method="post" class="user">
+                    <div class="form-group">
+                        <form:input path="name" class="form-control form-control-user"
+                                    id="exampleInputEmail" aria-describedby="emailHelp"
+                                    placeholder="Wpisz nazwę instytucji"/><form:errors path="name" cssClass="error"/>
+                    </div>
+                    <div class="form-group">
+                        <form:input path="description" class="form-control form-control-user"
+                                    id="exampleInputPassword" placeholder="Podaj opis instytucji"/><form:errors
+                            path="description" cssClass="error"/>
+                    </div>
+                    <input class="btn btn-primary btn-user btn-block" type="submit" value="Dodaj instytucję"/>
+                </form:form>
+            </div>
+        </div>
+    </div>
+</div>
 
-        <%@ include file="../footer.jsp" %>
+<%@ include file="admin-footer.jsp" %>
+
+
